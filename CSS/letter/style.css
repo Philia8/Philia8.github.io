@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #ccc;
+}
+
+article {
+  width: 210mm;
+  height: 297mm;
+  margin: 20px auto;
+  position: relative;
+}
+
+address {
+  position: absolute;
+  bottom: 8mm;
+  right: 20mm;
+}
+
+h1 {
+  position: absolute;
+  top: 12mm;
+  left: 20mm;
+  width: 128px;
+  height: 128px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 44px 0;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+/* Your CSS below here */
+article{
+  background-image: url("./images/top.png");
+  background-position: top;
+  background-image: 
+    url("./images/top.png"),
+    url("./images/bottom.png"),
+    linear-gradient(rgba(0, 0, 0, 0.1),#fff, rgba(0, 0, 0, 0.1));
+  background-position: top,bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
+  border: 1mm solid #CCCCCC;
+}
+
+h1{
+  border-radius: 50%;
+  /* 旧版本浏览器兼容 */
+  /*box-shadow: 5px 5px 1px #000;*/
+  background-image: url("./images/icon.png");
+  filter: drop-shadow(5px 5px 1px #000);
+
+}
