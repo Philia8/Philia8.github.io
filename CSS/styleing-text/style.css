@@ -1,0 +1,124 @@
+/* General setup */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 1000px;
+  max-width: 1400px;
+}
+
+/* Layout */
+
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+nav {
+  float: left;
+  width: 20%;
+}
+
+footer {
+  clear: both;
+}
+
+header, section, aside, nav, footer {
+  padding: 20px;
+}
+
+/* header and footer */
+
+header, footer {
+  border-top: 5px solid #a66;
+  border-bottom: 5px solid #a66;
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+@font-face {
+  font-family: "body-font";
+  src: url("./fonts/Sanseriffic.otf");
+}
+
+@font-face {
+  font-family: "heading-font";
+  src: url("./fonts/SERIBL__.ttf");
+}
+
+body {
+  font-family: "body-font";
+  font-size: 10px;
+  line-height: 2;
+}
+
+header,
+h1,
+h2 {
+  font-family: "heading-font";
+  letter-spacing: 2px;
+}
+
+header {
+  text-align: center;
+}
+
+section h2 + p{
+  text-indent: 20px;
+}
+
+a:link,
+a:visited,
+a:focus,
+a:hover {
+  color: #a66;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:active {
+  color: black;
+}
+
+a[href^="http"]::after {
+  content: '';
+  background-image: url("./icon.png");
+  background-size: contain;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 2px;
+}
+
+ul li {
+  line-height: 2;
+  list-style-type: square;
+}
+
+nav ul a{
+  list-style: none;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul li {
+  list-style: none;
+  border: 1px solid #a66;
+  margin: 5px 0;
+}
