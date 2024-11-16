@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  padding-right: 20px;
+}
+
+.row {
+  clear: both;
+}
