@@ -116,5 +116,19 @@
     <p>Dr Eleanor Gaye</p>
     
     <p>University of Awesome motto: <q>Be awesome to each other.</q> -- <em>The memoirs of Bill S Preston, <abbr title="Esq">Esq</abbr></em></p>
+
+    <script>
+      window.onload = (e) => {
+        console.log('letter onload');
+        // window.postMessage('hhhh', '*'); 
+        // console.log('post end');
+        
+      }
+
+      window.addEventListener('message', (e) => {
+        console.log('get message from son', e);
+        
+      })
+    </script>
   </body>
 </html>
