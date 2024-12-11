@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping list example</title>
+  <style>
+    li {
+      margin-bottom: 10px;
+    }
+
+    li button {
+      font-size: 12px;
+      margin-left: 20px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>My shopping list</h1>
+
+  <div>
+    <label for="item">Enter a new item:</label>
+    <input type="text" name="item" id="item">
+    <button>Add item</button>
+  </div>
+
+  <ul>
+
+  </ul>
+
+  <script>
+    const addBtn = document.querySelector('button');
+    const div = document.querySelector('div');
+
+    const ul = document.createElement('ul');
+    div.appendChild(ul);
+
+    addBtn.addEventListener('click', () => {
+      // 获取文本框内容
+      const input = document.querySelector('input');
+      if(input.value.length) {
+        addNode(input.value);
+      }
+      input.value = '';
+      input.focus();
+    });
+
+    const addNode = (text) => {
+      const item = document.createElement('li');
+
+      const textNode = document.createTextNode(text);
+      const delBtn = document.createElement('button');
+      delBtn.textContent = 'delete';
+      item.appendChild(textNode);
+      item.appendChild(delBtn);
+      ul.appendChild(item);
+      delBtn.addEventListener('click', deleteItem);
+    };
+
+    const deleteItem = (e) => {
+      e.target.parentNode.remove(e.target);
+    }
+  </script>
+</body>
+
+</html>
