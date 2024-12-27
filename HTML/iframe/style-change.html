@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChangeIframeCSS</title>
+  <style>
+    iframe{
+      height: 100px;
+      width: 100%;
+      background-color: #bfa;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="letter" src="../letter.html" frameborder="0"></iframe>
+
+  <script>
+    window.onload = (e) => {
+      console.log('main load');
+      getIframe();
+    }
+
+    function getIframe() {
+      const letter = document.querySelector('#letter');
+      if(letter && letter.contentWindow){
+        const iframeWindow = letter.contentWindow;
+        // 无法通过该手段postMessage使主页面接收
+        iframeWindow.parent.postMessage('parent', '*');
+        // iframeWindow.postMessage('changeColor', '*');
+        // iframeWindow.document.querySelector('body').style.color = 'yellow';
+      }
+    }
+
+    // 监听message
+    window.addEventListener('message', (event) => {
+      console.log('parent', event);
+      changeLetterFontColor(event.source);
+    });
+
+    // 修改iframe中页面的样式
+    function changeLetterFontColor(s) {
+      // s.document.querySelector('body').style.color = 'white';
+      console.log(s.document.body);
+      s.document.body.style.color = 'green';
+      
+      // s.location.reload(true);
+    }
+
+
+  </script>
+</body>
+</html>

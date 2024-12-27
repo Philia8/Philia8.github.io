@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web音频API 实践</title>
+</head>
+<body>
+  <audio src="summer.mp3"></audio>
+  
+  <button class="paused">Play</button>
+  <br />
+  <input type="range" min="0" max="1" step="0.01" value="1" class="volume" />
+
+
+  <script>
+    // 获取音频操作对象
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = new AudioContext();
+
+    const audioElement = document.querySelector("audio");
+    const playBtn = document.querySelector("button");
+    const volumeSlider = document.querySelector(".volume");
+    // 创建一个媒体源对象
+    const audioSource = audioCtx.createMediaElementSource(audioElement);
+
+    // 播放/暂停音频
+    playBtn.addEventListener("click", () => {
+      // 确认 context 在 suspended 状态（自动播放策略）
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+
+      // 如果音轨处于停止则开始播放
+      if (playBtn.getAttribute("class") === "paused") {
+        audioElement.play();
+        playBtn.setAttribute("class", "playing");
+        playBtn.textContent = "Pause";
+        // 如果音轨正在播放则停止播放
+      } else if (playBtn.getAttribute("class") === "playing") {
+        audioElement.pause();
+        playBtn.setAttribute("class", "paused");
+        playBtn.textContent = "Play";
+      }
+    });
+
+    // 如果音轨结束了
+    audioElement.addEventListener("ended", () => {
+      playBtn.setAttribute("class", "paused");
+      playBtn.textContent = "Play";
+    });
+
+
+  // 音量
+  const gainNode = audioCtx.createGain();
+
+  volumeSlider.addEventListener("input", () => {
+    gainNode.gain.value = volumeSlider.value;
+  });
+
+  // 连接音频图中的不同节点
+  audioSource.connect(gainNode).connect(audioCtx.destination);
+
+  </script>
+</body>
+</html>
