@@ -4,20 +4,58 @@
  * @return {number[]}
  */
 var maxSlidingWindow = function(nums, k) {
-	// 暴力双重循环
-	let res = [];
-	for(let i = 0;i < nums.length - k + 1;i ++) {
-		let j = k,
-			m = i,
-			max = nums[i];
-		while(j --) {
-			if(nums[m] > max) max = nums[m];
-			m ++;
+	class DoubleQueue {
+		que;
+        
+		constructor() {
+			this.que = [];
 		}
-		res.push(max);
+
+		// 入队
+		enqueue(val) {
+			let end = this.que[this.que.length - 1];
+			while(end !== undefined && end < val) {
+				this.que.pop();
+				end = this.que[this.que.length - 1];
+			}
+			this.que.push(val);
+		}
+
+		// 出队
+		dequeue(val) {
+			let front = this.getMax();
+			if(front === val) {
+				this.que.shift();
+			}
+		}
+
+		// 获取队首元素
+		getMax() {
+			return this.que[0];
+		}
+	}
+
+	let dq = new DoubleQueue();
+	// k窗口内元素入队
+	let cur = 0,
+		left = 0, // left指针指向当前窗口移动时需要移除元素的下标
+		res = [];
+	while(cur < k) {
+		dq.enqueue(nums[cur++]);
+	}
+	res.push(dq.getMax());
+	while(cur < nums.length) {
+		dq.enqueue(nums[cur]);
+		dq.dequeue(nums[left]);
+		// console.log(dq.que);
+    
+		res.push(dq.getMax());
+		cur ++;
+		left ++;
 	}
 	return res;
 };
 
-const nums = [1,3,-1,-3,5,3,6,7], k = 3;
+const nums = [1, 3, 1, 2, 0, 5],
+	k = 3;
 console.log(maxSlidingWindow(nums, k));
