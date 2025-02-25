@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件流</title>
+</head>
+<body>
+  <div id="outside">
+    <button id="btn">点击</button>
+  </div>
+
+  <script>
+    const outDiv = document.getElementById('outside');
+    const button = document.getElementById('btn');
+    button.addEventListener('click', (e) => {
+      console.log('button click');
+    });
+    outDiv.addEventListener('click', (e) => {
+      console.log('div click', e.target);
+    }, true);
+  </script>
+</body>
+</html>
