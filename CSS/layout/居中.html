@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>居中布局</title>
+  <style>
+    .container {
+      width: auto;
+      height: 500px;
+      border: 1px solid red;
+      
+      position: relative;
+    }
+
+    .box1 {
+      /* 中心居中 */
+      width: 200px;
+      height: 100px;
+      background-color: #bfe;
+      /* margin: 0 auto; */
+      /* position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; */
+
+      /* position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); */
+
+      /* 水平居中 */
+      /* position: absolute;
+      left: 50%;
+      transform: translateX(-50%); */
+
+      float: right;
+      /* transform: translateX(-50%); */
+      /* position: absolute; */
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box1"></div>
+  </div>
+</body>
+</html>
