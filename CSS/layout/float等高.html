@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float 等高布局</title>
+  <style>
+    .container {
+      overflow: hidden;
+      /* 清除浮动 */
+      background-color: #f0f0f0;
+      /* 父容器背景色 */
+      padding: 10px;
+    }
+
+    .column {
+      float: left;
+      width: 33.333%;
+      /* 三列布局 */
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .column:nth-child(1) {
+      background-color: #e0e0e0;
+    }
+
+    .column:nth-child(2) {
+      background-color: #d0d0d0;
+    }
+
+    .column:nth-child(3) {
+      background-color: #c0c0c0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="column">内容1<br>更多内容</div>
+    <div class="column">内容2</div>
+    <div class="column">内容3</div>
+  </div>
+</body>
+
+</html>

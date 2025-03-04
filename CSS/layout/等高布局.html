@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>等高布局</title>
+  <style>
+    .container {
+      /* flex */
+      /* display: flex;
+      flex-wrap: nowrap; */
+      /* grid */
+      display: grid;
+      grid-template-columns: 200px repeat(2, 1fr);
+      grid-template-rows: auto;
+      gap: 10px;
+    }
+
+    .box {
+      /* width: 100px;
+      height: 100px; */
+      /* flex: 1 1 500px; */
+      padding: 10px;
+      border: 1px solid red;
+    }
+
+    .b1 {
+      background-color: aqua;
+      padding: 30px;
+      /* 设置固定高度后不再自适应 */
+      /* height: 200px; */ 
+    }
+
+    /* .b2 {
+      background-color: #bfa;
+    }
+    .b3 {
+      background-color: #333;
+    }
+    .b4 {
+      background-color: blueviolet;
+    } */
+  </style>
+</head>
+
+<body>
+  grid布局
+  <div class="container">
+    <div class="b1 box"></div>
+    <div class="b2 box"></div>
+    <div class="b3 box"></div>
+  </div>
+  Flexbox布局
+  <!-- <div class="container">
+    <div class="b1 box"></div>
+    <div class="b2 box"></div>
+    <div class="b3 box"></div>
+    <div class="b4 box"></div>
+  </div> -->
+</body>
+
+</html>
