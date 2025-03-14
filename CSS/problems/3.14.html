@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.14</title>
+  <style>
+    .img-container {
+      width: 100px;
+      height: 100px;
+      padding: 50px;
+      border: 50px solid transparent;
+      background-color: #bfa;
+      background-image: url(../../HTML/imgs/01.jpg);
+      background-size: 50%;
+      /* background-origin: content-box; */
+    }
+
+    .img-container:nth-of-type(2) {
+      background-origin: padding-box;
+    }
+
+    .img-container:nth-of-type(3) {
+      background-origin: border-box;
+      background-clip: padding-boxr;
+    }
+
+    @keyframes countChange {
+      from {
+        column-count: 2;
+      }
+
+      to {
+        column-count: 3;
+      }
+    }
+
+    .content-box {
+      /* animation: countChange 3s linear forwards 5; */
+      /* column-count: 4;
+      column-width: 10px; */
+      /* column-gap: 100px; */
+
+      /* 文本换行效果 */
+      width: 300px;
+      /* white-space: wrap; */
+      overflow: hidden;
+      /* word-wrap: break-word; */
+      
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="img-container"></div><br>
+  <div class="img-container"></div><br>
+  <div class="img-container"></div> -->
+
+  <!-- 多栏文本 -->
+  <p class="content-box">
+    This is a bunch of text split into three columns using the CSS `columns`Thetextisequallydistributedoverthecolumns
+    property. The text is equally distributed over the columns.
+  </p>
+  <!-- <div class="content-box">
+    <img src="../../HTML/imgs/01.jpg" alt="">1
+    <img src="../../HTML/imgs/02.jpg" alt="">2
+    <img src="../../HTML/imgs/03.jpg" alt="">3
+    <img src="../../HTML/imgs/04.jpg" alt="">4
+    <img src="../../HTML/imgs/01.jpg" alt="">5
+    <img src="../../HTML/imgs/02.jpg" alt="">6
+    <img src="../../HTML/imgs/03.jpg" alt="">7
+    <img src="../../HTML/imgs/04.jpg" alt="">8
+  </div> -->
+
+</body>
+
+</html>
