@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.11</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      position: relative;
+    }
+
+    @keyframes boxMove {
+      from {
+        left: 0
+      }
+
+      to {
+        left: 100px
+      }
+    }
+
+    #move-by-css {
+      /* animation: boxMove linear 100s forwards; */
+      animation: boxMove 2s linear forwards 2s 3
+    }
+
+    /* 三角形旋转 */
+    #rotate-triangle {
+      width: 0;
+      /* border: 50px solid #bfa; */
+      /* border-top: none; */
+      /* background-color: #bfa; */
+      border-top: 50px solid red;
+      border-right: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 50px solid transparent;
+      /* 旋转30° */
+      transform: rotateZ(30deg);
+    }
+
+    /* 实现元素的淡入淡出效果 */
+    @keyframes fadeInOut {
+      from {
+        display: none;
+      }
+
+      to {
+        display: block;
+        background-color: #f91;
+      }
+    }
+
+    #fade-in-out {
+      border: none;
+      border-radius: 50%;
+      animation: fadeInOut 4s forwards 3 ease;
+    }
+
+    /* 设置线性渐变背景 */
+    #back-color {
+      border: none;
+      /* background-image: linear-gradient(to 50deg, red, blue, yellow); */
+      /* background-image: linear-gradient(to left top, red 50%, blue); */
+      /* background-image: linear-gradient(.25turn, red 10%, blue);; */
+      /* background-image: linear-gradient(red 10%, 30%, blue 90%); */
+      /* background-image: linear-gradient(red 40%, yellow 20% 60%, blue 10% 100%); */
+      /* background-image: linear-gradient(red 40%, yellow 30%, blue 65%); */
+      /* 径向渐变 */
+      /* background-image: radial-gradient(red, blue); */
+      /* background-image: radial-gradient(50px,red, blue); */
+      /* background-image: radial-gradient(50px 20px,red, blue); */
+      background-image: radial-gradient(closest-side at 50px 20px,red, blue);
+
+      /* 设置反射效果 */
+      -webkit-box-reflect: below 30px;
+      
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- <div class="box" id="move-by-css"></div> -->
+  <hr>
+  <!-- <div class="box" id="move-by-js"></div> -->
+  <hr>
+  <!-- <div id="rotate-triangle"></div> -->
+  <hr>
+  <!-- 实现元素的淡入淡出效果 -->
+  <!-- <div class="box" id="fade-in-out"></div> -->
+   <hr>
+   <div class="box" id="back-color">fsdffdafad</div>
+
+  </div>
+
+  <script>
+    const box = document.getElementById("move-by-js");
+    const totalDistance = 100; // 总移动距离（2秒 * 每秒50px）
+    const duration = 2000; // 总动画时间（2秒）
+    const speed = 50; // 每秒移动的距离（50px）
+
+    let currentLeft = 0; // 当前位置
+    let startTime = null;
+
+    function moveBox(timestamp) {
+      if (!startTime) {
+        startTime = timestamp; // 记录动画开始时间
+      }
+
+      const elapsedTime = timestamp - startTime; // 已过去的时间（毫秒）
+      const steps = Math.floor(elapsedTime / 1000); // 已过去的秒数
+
+      if (steps <= 2) { // 总共移动2秒
+        currentLeft = steps * speed; // 每秒移动50px
+        box.style.left = `${currentLeft}px`;
+        requestAnimationFrame(moveBox);
+      }
+    }
+
+    // requestAnimationFrame(moveBox);
+    // const movingDiv = document.getElementById("move-by-js");
+    //   let currentLeft = 0; // 当前左偏移量
+    //   const targetLeft = 100; // 目标偏移量（向左移动 100px）
+    //   const speed = 50; // 每秒移动 50px
+    //   let startTime = Date.now();
+    //   function animate() {
+    //     // 计算当前时间戳
+    //     const now = Date.now();
+    //     const time = (now - startTime) / 1000;
+    //     currentLeft += speed * time;
+    //     if (currentLeft <= targetLeft) {
+    //       movingDiv.style.left = `${currentLeft}px`;
+    //       requestAnimationFrame(animate);
+    //     }
+    //   }
+    //   // 初始化动画
+    //   animate.startTime = Date.now();
+    //   requestAnimationFrame(animate);
+  </script>
+</body>
+
+</html>

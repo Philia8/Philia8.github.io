@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.4</title>
+  <style>
+    .container {
+      /* width: 100px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; */
+    }
+    span {
+      width: 100px;
+      display: block;
+      word-wrap: break-all;
+      /* display: -webkit-box;
+      overflow: hidden;
+      line-clamp: 3;
+      text-overflow: ellipsis;
+      -webkit-box-orient: horizontal; */
+
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span>如果需要找到具体的物品组合，我们可以通过回溯 dp 数组来重构解。从 dp[n][W] 开始，如果 dp[i][j] 的值等于 dp[i-1][j]，则第 i 个物品没有被放入背包；如果 dp[i][j] 的值等于
+    dp[i-1][j-w_i] + v_i，则第 i 个物品被放入背包。通过这种方式，我们可以找到所有被放入背包的物品。</span>
+  </div>
+</body>
+</html>

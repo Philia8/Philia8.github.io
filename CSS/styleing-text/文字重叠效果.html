@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文字重叠</title>
+  <style>
+    /* .container {
+      position: relative;
+      border: 1px solid red;
+      height: 100px;
+
+    }
+
+    .text {
+      position: absolute;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    .text:nth-of-type(1) {
+      color: red;
+      z-index: 2;
+    }
+
+    .text:nth-of-type(2) {
+      color: green;
+    } */
+
+    /* .text {
+      font-size: 40px;
+      font-weight: bold;
+      text-shadow: 
+        -3px 1px 0 red,
+        5px 5px 0 green,
+        10px 10px 0 blue
+    } */
+
+    /* .text {
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow:
+        0 0 0 red,
+        2px 2px 0 blue,
+        4px 4px 0 green;
+    } */
+
+    .container {
+      position: relative;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .text::after {
+      content: "Hello";
+      color: red;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      z-index: -1;
+    }
+
+    /* .container {
+      position: relative;
+    }
+
+    .text {
+      font-size: 40px;
+      font-weight: bold;
+      position: absolute;
+    }
+
+    .text:nth-of-type(1) {
+      color: blue;
+      z-index: 3;
+    }
+
+    .text:nth-of-type(2) {
+      color: blueviolet;
+      transform: translate(10px, 10px);
+      z-index: 2;
+    }
+
+    .text:nth-of-type(3) {
+      color: #ccc;
+      transform: translate(20px, 15px);
+      z-index: 3;
+    } */
+
+    .box-container {
+      width: 100px;
+      letter-spacing: -100px;
+    }
+
+    .box {
+      border: 1px solid red;
+      display: inline-block;
+      width: 20px;
+      /* width: calc((100% - 6px) / 3); */
+      height: 100px;
+      letter-spacing: 0;
+    }
+
+    /* .box:nth-of-type(3) {
+      display: block;
+    } */
+  </style>
+
+</head>
+
+<body>
+  <!-- 多个文本堆叠
+  <div class="container">
+    <div class="text">Hello</div>
+    <div class="text">World</div>
+  </div> -->
+
+  <!-- 单个文本重叠效果
+  <div class="text">Hello</div> -->
+
+  position + 伪元素
+  <div class="container">
+    <div class="text">Hello</div>
+  </div>
+
+  <!-- position + transform
+  <div class="container">
+    <div class="text">Hello</div>
+    <div class="text">Hello</div>
+    <div class="text">Hello</div>
+  </div> -->
+
+  <!-- 多个inline-block -->
+  <div class="box-container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+</body>
+
+</html>

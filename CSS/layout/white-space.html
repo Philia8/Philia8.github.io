@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>white-space 示例</title>
+  <style>
+    .container {
+      width: 200px;
+      border: 1px solid #000;
+      padding: 10px;
+    }
+
+    .normal {
+      white-space: normal;
+      /* 默认值 */
+    }
+
+    .nowrap {
+      white-space: nowrap;
+      /* 内容不会换行 */
+    }
+
+    .pre-wrap {
+      white-space: pre-wrap;
+      /* 保留空白字符，内容会自动换行 */
+    }
+
+    .pre-line {
+      white-space: pre-line;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <p class="normal">这是一个很长的单词不会被拆分的示例。</p>
+    <p class="nowrap">这是一个很长的单词不会被拆分的示例。
+      这是一个很长的单词不会被拆分的示例。这是一个很长的单词不会被拆分的示例。
+    </p>
+    <p class="pre-wrap">这是一个很长的单词不会被拆分的示例。</p>
+    <p class="pre-line">kjfshdfjhkhhfjkfsdfdsfdsfdsdhffdf 
+      
+      
+      fdhsjkfhdfkskhf</p>
+  </div>
+</body>
+
+</html>
