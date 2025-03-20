@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.11</title>
+</head>
+
+<body>
+  <!-- checkbox -->
+  <form action="#">
+    who do you like most <br>
+    <input type="checkbox" name="person" id="Jack" checked>Jack
+    <input type="button" value="click">
+
+  </form>
+
+  <script>
+    const person = document.querySelector('#Jack');
+    console.log('checkbox: ' + person.value);
+    
+    const form = document.querySelector('form');
+    console.log(form);
+    console.log(new FormData(form).get('person'));
+    
+    
+  </script>
+</body>
+
+</html>
