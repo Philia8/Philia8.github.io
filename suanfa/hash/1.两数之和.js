@@ -15,5 +15,27 @@ var twoSum = function (nums, target) {
 	}
 };
 
-var nums = [3, 3];
-console.log(twoSum(nums, 6));
+// var nums = [3, 3];
+// console.log(twoSum(nums, 6));
+
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSumSort = function(numbers, target) { // pass 不允许改变原数组顺序
+  // 双指针
+  let left = 0;
+  let right = numbers.length - 1;
+  while (left < right) {
+    let sub = target - numbers[left];
+    if (sub === numbers[right]) return [left + 1, right + 1];
+    if (sub < numbers[right]) right--;
+    else left++;
+  }
+};
+
+// let nums = [2, 3, 4];
+let nums = [2, 7, 11, 15];
+let target = 9;
+console.log(twoSumSort(nums, target));
