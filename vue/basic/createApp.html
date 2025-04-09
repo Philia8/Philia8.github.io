@@ -12,21 +12,24 @@
     </button>
   </div>
   
+  <!-- 通过全局构建版本使用Vue -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
-    const { createApp, ref } = Vue;
+    const { createApp } = Vue;
     console.log(createApp);
     
 
     createApp({
-      setup() {
+      // 选项式
+      data() {
         return {
-          count: ref(0)
-        };
+          count: 0
+        }
       }
     }).mount('#app')
   </script>
 
+  <!-- 通过ES6 module使用Vue -->
   <!-- <script type="module">
     import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
     console.log(createApp);
