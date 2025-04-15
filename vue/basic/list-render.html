@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>列表渲染</title>
+</head>
+<body>
+
+  <div id="app">
+  <ul>
+    <!-- <li v-for="(color, index) of colors">
+      <span :style="{color: color}">字体颜色</span>
+    </li> -->
+    <!-- <li v-for="color in colors" v-if="color !== 'red'">
+      <span :style="{color: color}">字体颜色</span>
+    </li> -->
+    <li v-for="item in colors" v-if="shouldShowUsers">
+      <span>{{item}}</span>
+    </li>
+  </ul>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const {createApp} = Vue;
+    createApp({
+      data() {
+        return {
+         colors: ['red', 'blue', 'yellow', 'green'],
+         shouldShowUsers: false
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>

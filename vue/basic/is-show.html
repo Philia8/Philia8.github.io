@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>条件渲染</title>
+</head>
+<body>
+  <div id="app">
+    <div class="show-ele">
+      <div class="v-if" v-if="false">在首次加载时不会渲染该元素</div>
+      <div class="v-show" v-show="false">在首次加载时渲染该元素</div>
+    </div>
+  </div>
+  <script>
+    const {createApp} = Vue;
+    createApp({
+
+    }).mount('#app');
+  </script>
+</body>
+</html>

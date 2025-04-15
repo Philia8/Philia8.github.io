@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算属性</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="addBook">新增一本书</button>
+    <button @click="insBook">减少一本书</button>
+    <ul>
+      <li v-for="book in getAllBooks">{{book}}</li>
+    </ul>
+    <div class="full-name">
+      {{fullName}}
+      <button @click="changeName">修改计算属性</button>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          author: {
+            name: 'John Doe',
+            books: [
+              'Vue 2 - Advanced Guide',
+              'Vue 3 - Basic Guide',
+              'Vue 4 - The Mystery'
+            ]
+          },
+          firstName: "Doe",
+          lastName: "John"
+        };
+      },
+      methods: {
+        addBook() {
+
+        },
+        insBook() {
+          let books = this.author.books;
+          this.author.books = books.slice(0, books.length - 1);
+        },
+        changeName() {
+          this.fullName = 'Kim Wang';
+        }
+      },
+      computed: {
+        getAllBooks() {
+          return this.author.books.length ? this.author.books : [];
+        },
+        // 可写的计算属性
+        fullName: {
+          get(pre) {
+            console.log(pre);
+            return this.lastName + ' ' + this.firstName;
+          },
+          set(newValue) {
+            [this.firstName, this.lastName] = newValue.split(' ');
+          }
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+
+</html>

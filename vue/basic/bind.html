@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class绑定和style绑定</title>
+  <style>
+    .red-text {
+      color: red;
+    }
+
+    .big-size {
+      font-size: 20px;
+    }
+
+    .line {
+      text-decoration-line: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="changeColor">改变字体颜色</button>
+    <div>
+      <span :class="{'red-text': isRed}" class="big-size">这是一行文字</span>
+    </div>
+    <span :class="classObj">删除线红色文本</span><br>
+    <span :style="{'font-size': 20 + 'px', color: 'blue', ...otherStyle}">动态绑定style</span><br>
+    <span :style="[textColor, isRed ? '' : otherStyle]">传入数组进行动态样式绑定</span>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          isRed: false,
+          classObj: {
+            'line': true,
+            'red-text': true
+          },
+          otherStyle: {
+            display: 'inline-block',
+            background: 'yellow'
+          },
+          textColor: 'color: green'
+        };
+      },
+      methods: {
+        changeColor() {
+          this.isRed = !this.isRed;
+        }
+      },
+      computed: {
+
+      }
+    }).mount('#app');
+  </script>
+</body>
+
+</html>
