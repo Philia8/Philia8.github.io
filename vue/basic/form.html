@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单输入与绑定</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>表单输入与绑定</h1>
+    <h2>文本</h2>
+    <h3>单行文本</h3>
+    show text: {{singleText}}
+    <input type="text" v-model="singleText">
+    <h3>多行文本</h3>
+    <span>show text: {{multipleText}}</span>
+    <textarea v-model="multipleText" placeholder="多行文本输入"></textarea>
+    <h3>复选框</h3>
+    <fieldset>
+      <legend>喜欢的水果：{{multipleCheck}}</legend>
+      <input type="checkbox" id="apple" v-model="multipleCheck" value="apple">
+      <label for="apple">apple</label>
+      <input type="checkbox" id="orange" v-model="multipleCheck" value="orange">
+      <label for="orange">orange</label>
+      <input type="checkbox" id="banana" v-model="multipleCheck" value="banana">
+      <label for="banana">banana</label>
+      <input type="checkbox" id="watermelon" v-model="multipleCheck" value="watermelon">
+      <label for="watermelon">watermelon</label>
+    </fieldset>
+
+    <h3>单选按钮</h3>
+    <fieldset>
+      <legend>性别：{{radioValue}}</legend>
+      <input id="male" type="radio" value="male" v-model="radioValue">
+      <label for="male">male</label>
+      <input type="radio" id="female" value="female" v-model="radioValue">
+      <label for="female">female</label>
+    </fieldset>
+
+    <h3>下拉选择器</h3>
+    <span>选修课：{{object}}</span>
+    <select name="object" id="object" v-model="object">
+      <option value="数学">数学</option>
+      <option value="语文">语文</option>
+      <option value="体育">体育</option>
+      <option value="英语">英语</option>
+    </select>
+    <br>
+    <span>选修多门课程：{{multipleObjects}}</span>
+    <select name="object" id="object" v-model="multipleObjects" multiple>
+      <option value="数学">数学</option>
+      <option value="语文">语文</option>
+      <option value="体育">体育</option>
+      <option value="英语">英语</option>
+    </select>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          singleText: '单行文本初始值',
+          multipleText: '',
+          multipleCheck: [], // 多值复选框接收一个数组，单值复选框可以绑定一个基本类型变量
+          radioValue: '',
+          object: '',
+          multipleObjects:[]
+        };
+      },
+      methods: {
+      }
+    }).mount('#app');
+  </script>
+</body>
+
+</html>
