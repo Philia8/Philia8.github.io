@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watch侦听器</title>
+</head>
+<body>
+
+  <div id="app">
+    <label for="name">name:</label>
+    <input type="text" id="name" v-model.lazy="name" placeholder="change my name">
+    <div>{{name}}</div>
+    <div>{{showName}}</div>
+    <label for="question">请提问：</label>
+    <input type="text" placeholder="请以问号结尾表示一个问题" v-model.lazy="question">
+    <div class="answer">{{answer}}</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const {createApp}  = Vue;
+    createApp({
+      data() {
+        return {
+          name: 'Jack',
+          showName: '',
+          question: '',
+          answer: ''
+        }
+      },
+      watch: {
+        name(newValue, oldValue) {
+          this.showName = `我原来叫${oldValue}，现在叫${newValue}`;
+        },
+        question: {
+          handler(val, oldValue) {
+            console.log(val);
+            
+            if(/.*\?$/.test(val)) {
+              this.answer = 'thinking...';
+              setTimeout(() => {
+                this.answer = 'yes';
+              }, 1000);
+            } else {
+              this.answer = "请以问号结尾表示一个问题，否则无法回答";
+            }
+          }
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
