@@ -1,26 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <BlogPost title="hello"></BlogPost>
+  <Counter></Counter>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script type="module">
+import BlogPost from './components/BlogPost';
+import Counter from './components/Counter.js';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BlogPost,
+    Counter
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
