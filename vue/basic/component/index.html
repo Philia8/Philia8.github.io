@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件基础</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <Counter></Counter>
+    <!-- <button id="counter">click {{count}} times</button> -->
+    <!-- <Button :name="btn"></Button> -->
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- .vue文件预处理 -->
+    <!-- <script src="https://unpkg.com/vue3-sfc-loader"></script> -->
+     <!-- 不建议在HTML文件中引入单文件组件，需要通过工具进行预编译处理后才能被浏览器识别 -->
+    <script type="module">
+      import Counter from './counter.js';
+      // import Button from './Button.vue';
+
+      const { createApp } = Vue;
+      createApp({
+        data() {
+          return {
+
+          };
+        },
+        components: {
+          Counter,
+          // Button
+        }
+      }).mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <BlogPost title="hello"></BlogPost>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module">
+      // import BlogPost from './BlogPost.vue';
+      import BlogPost from './BlogPost.js';
+      const { createApp } = Vue;
+      createApp({
+        data() {
+          return {
+
+          };
+        },
+        components: {
+          BlogPost
+        }
+      }).mount("#app");
+    </script>
+  </body>
+
+</html>
