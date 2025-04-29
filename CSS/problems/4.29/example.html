@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stacking Context Example</title>
+  <style>
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+    }
+
+    .box {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      transition: transform 0.5s ease;
+    }
+
+    .box1 {
+      background-color: red;
+      top: 50px;
+      left: 50px;
+      transform: translateX(0);
+    }
+
+    .box2 {
+      background-color: blue;
+      top: 100px;
+      left: 100px;
+      transform: translateX(0);
+    }
+
+    .container:hover .box1 {
+      transform: translateX(100px);
+    }
+
+    .container:hover .box2 {
+      transform: translateX(50px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+  </div>
+</body>
+
+</html>
