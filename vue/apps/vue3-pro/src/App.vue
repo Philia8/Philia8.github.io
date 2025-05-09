@@ -10,7 +10,7 @@
       </BlogPost>
     </div> -->
     动态组件切换
-    <div class="container">
+    <!-- <div class="container">
       <div class="tabs">
         <button v-for="btn in btns" @click="compsName = btn.name" class="tab"
                 :class="{'active': btn.name === compsName}">{{btn.name}}</button>
@@ -18,7 +18,8 @@
       <div class="block">
         <component :is="compsName" />
       </div>
-    </div>
+    </div> -->
+    <Counter/>
   </div>
 </template>
 
@@ -29,7 +30,7 @@
   export default {
     name: 'App',
     components: {
-      Counter,
+      // Counter,
       OtherCounter,
       BlogPost
     },
