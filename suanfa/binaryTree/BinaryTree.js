@@ -121,6 +121,25 @@ class BinaryTree {
     }
     return nums;
   }
+
+  // 层序遍历：借助队列结构存储未访问的节点
+  fn(root) {
+    if (!root) return [];
+    let res = [];
+    let que = [root];
+    while (que.length) {
+      let count = que.length;
+      let nums = [];
+      while (count--) {
+        const node = que.shift();
+        nums.push(node.val);
+        if (node.left) que.push(node.left);
+        if (node.right) que.push(node.right);        
+      }
+      res.push(nums);
+    }
+    return res;
+  }
 }
 
 let nums = [1, 2, 3, 4, 5, 6];
@@ -139,6 +158,14 @@ tree.init(nums);
 // tree.postorder(tree.root, postRes);
 // console.log(postRes);
 
-console.log(tree.preorder2(tree.root));
-console.log(tree.inorder2(tree.root));
-console.log(tree.postorder2(tree.root));
+// console.log(tree.preorder2(tree.root));
+// console.log(tree.inorder2(tree.root));
+// console.log(tree.postorder2(tree.root));
+
+
+// console.log(tree.fn(tree.root));
+
+
+export {
+  BinaryTree
+};
